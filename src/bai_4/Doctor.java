@@ -1,16 +1,16 @@
 package bai_4;
 
-public class Dotor {
+public class Doctor {
     String name;
     int age;
     String email;
     int numberPhone;
     String workingPosition;
 
-    public Dotor() {
+    public Doctor() {
     }
 
-    public Dotor(String name, int age, String email, int numberPhone, String workingPosition) {
+    public Doctor(String name, int age, String email, int numberPhone, String workingPosition) {
         this.name = name;
         this.age = age;
         this.email = email;

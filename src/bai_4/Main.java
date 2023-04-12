@@ -15,7 +15,7 @@ public class Main {
         int numberPhone = Integer.parseInt(sc.nextLine());
         System.out.println("nhap vi tri lam viec: ");
         String workingPosition = sc.nextLine();
-        Dotor dotor = new Dotor(name,age,email,numberPhone,workingPosition);
-        System.out.println(dotor.toString());
+        Doctor doctor = new Doctor(name,age,email,numberPhone,workingPosition);
+        System.out.println(doctor.toString());
     }
 }
