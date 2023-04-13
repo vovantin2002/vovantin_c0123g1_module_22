@@ -35,4 +35,7 @@ public class Student {
                 ", name='" + name + '\'' +
                 '}';
     }
+    public String getToCsv(){
+        return id+","+name;
+    }
 }
