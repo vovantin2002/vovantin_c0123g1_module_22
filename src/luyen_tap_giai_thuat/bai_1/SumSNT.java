@@ -7,10 +7,10 @@ public class SumSNT {
         Scanner sc=new Scanner(System.in);
         System.out.println("nhap n: ");
         int n= Integer.parseInt(sc.nextLine());
-//        while(n)
-        for (int i = 0; i <n ; i++) {
-
-        }
+////        while(n)
+//        for (int i = 0; i <n ; i++) {
+//
+//        }
         System.out.println(isSNT(n));
     }
 
