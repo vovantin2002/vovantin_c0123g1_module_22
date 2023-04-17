@@ -9,7 +9,19 @@ public class FruitController {
         fruitService.displayListFruit();
     }
 
+    public void displayListFruitSetKey() {
+        fruitService.displayListFruitSetKey();
+    }
+
+    public void deleteFruit() {
+        fruitService.deleteFruit();
+    }
+
     public void addNewFruit() {
         fruitService.addNewFruit();
+    }
+
+    public void editFruit() {
+        fruitService.editFruit();
     }
 }

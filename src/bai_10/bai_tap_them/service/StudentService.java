@@ -33,6 +33,7 @@ public class StudentService implements IStudentService {
 
     @Override
     public void removeStudent() {
+        displayStudent();
         System.out.println("Nhap ma hoc sinh muon xoa: ");
         int id = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < studentList.size(); i++) {

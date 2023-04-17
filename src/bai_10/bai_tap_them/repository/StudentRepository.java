@@ -27,15 +27,17 @@ public class StudentRepository implements IStudentRepository {
 
     @Override
     public boolean removeStudentById(int id) {
+        boolean flag = false;
         for (int i = 0; i < studentList.size(); i++) {
             if (id == studentList.get(i).getId()) {
-                return true;
-
+                 flag=true;
+                System.out.println("Xoa thanh cong. ");
+            }else{
+                System.out.println("Khong tim thay id. ");
+                  flag=false;
             }
         }
-
-
-        return false;
+        return flag;
     }
 
 

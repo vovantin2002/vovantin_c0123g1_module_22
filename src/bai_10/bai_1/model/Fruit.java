@@ -8,14 +8,6 @@ public class Fruit {
     private String origin;
     private int price;
 
-    public Fruit(String fruitName, String typeOfFruit, int productionDate, int expiryDate, String origin, int price) {
-        this.fruitName = fruitName;
-        this.typeOfFruit = typeOfFruit;
-        this.productionDate = productionDate;
-        this.expiryDate = expiryDate;
-        this.origin = origin;
-        this.price = price;
-    }
 
     public Fruit() {
     }
@@ -48,6 +40,7 @@ public class Fruit {
         return expiryDate;
     }
 
+
     public void setExpiryDate(int expiryDate) {
         this.expiryDate = expiryDate;
     }
@@ -71,12 +64,21 @@ public class Fruit {
     @Override
     public String toString() {
         return "Fruit{" +
-                "fruitName='" + fruitName + '\'' +
+                ", fruitName='" + fruitName + '\'' +
                 ", typeOfFruit='" + typeOfFruit + '\'' +
                 ", productionDate=" + productionDate +
                 ", expiryDate=" + expiryDate +
                 ", origin='" + origin + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    public Fruit(String fruitName, String typeOfFruit, int productionDate, int expiryDate, String origin, int price) {
+        this.fruitName = fruitName;
+        this.typeOfFruit = typeOfFruit;
+        this.productionDate = productionDate;
+        this.expiryDate = expiryDate;
+        this.origin = origin;
+        this.price = price;
     }
 }

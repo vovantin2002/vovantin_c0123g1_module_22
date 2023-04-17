@@ -27,7 +27,17 @@ public class TeacherRepository implements ITeacherRepository {
 
     @Override
     public boolean removeTeacherById(int id) {
-        return false;
+        boolean flag = false;
+        for (int i = 0; i < teacherList.size(); i++) {
+            if (id == teacherList.get(i).getId()) {
+                flag = true;
+                System.out.println("Xoa thanh cong. ");
+            } else {
+                flag = false;
+                System.out.println("Khong tim thay id. ");
+            }
+        }
+        return flag;
     }
 
     @Override

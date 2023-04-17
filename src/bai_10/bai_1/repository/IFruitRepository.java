@@ -2,9 +2,14 @@ package bai_10.bai_1.repository;
 
 import bai_10.bai_1.model.Fruit;
 
-import java.util.List;
+import java.util.Map;
 
 public interface IFruitRepository {
-    List<Fruit> getListFruit();
-    void addNewFruit(Fruit fruit);
+    Map<String, Fruit> getListFruit();
+
+    void addNewFruit(String id, Fruit fruit);
+
+    boolean deleteFruit(String id);
+
+    boolean editFruit(String id);
 }

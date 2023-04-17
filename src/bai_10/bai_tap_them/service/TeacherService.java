@@ -30,6 +30,7 @@ public class TeacherService implements ITeacherService {
 
     @Override
     public void removeTeacher() {
+        displayTeacher();
         System.out.println("Nhap ma giang vien muon xoa: ");
         int id = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < teacherList.size(); i++) {
@@ -38,6 +39,7 @@ public class TeacherService implements ITeacherService {
                 System.out.println("Xoa giang vien thanh cong. ");
             }
         }
+        displayTeacher();
     }
 
     @Override
