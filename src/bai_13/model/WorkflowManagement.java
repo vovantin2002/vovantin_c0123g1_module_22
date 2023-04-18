@@ -3,14 +3,24 @@ package bai_13.model;
 public class WorkflowManagement {
     private int id;
     private String spendingName;
-    private int spendingAmount    ;
+    private String spendingDate;
+    private int spendingAmount;
     private String moreDescription;
 
-    public WorkflowManagement(int id, String spendingName, int spendingAmount, String moreDescription) {
+    public WorkflowManagement(int id, String spendingName, String spendingDate, int spendingAmount, String moreDescription) {
         this.id = id;
         this.spendingName = spendingName;
+        this.spendingDate = spendingDate;
         this.spendingAmount = spendingAmount;
         this.moreDescription = moreDescription;
+    }
+
+    public String getSpendingDate() {
+        return spendingDate;
+    }
+
+    public void setSpendingDate(String spendingDate) {
+        this.spendingDate = spendingDate;
     }
 
     public WorkflowManagement() {
@@ -53,6 +63,7 @@ public class WorkflowManagement {
         return "WorkflowManagement{" +
                 "id=" + id +
                 ", spendingName='" + spendingName + '\'' +
+                ", spendingDate='" + spendingDate + '\'' +
                 ", spendingAmount=" + spendingAmount +
                 ", moreDescription='" + moreDescription + '\'' +
                 '}';
