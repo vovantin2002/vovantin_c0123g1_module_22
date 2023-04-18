@@ -98,10 +98,10 @@ public class WorkflowManagementService implements IWorkflowManagementService {
         System.out.println("Nhap ten muon tim kiem: ");
         String name = sc.nextLine();
         for (int i = 0; i < workflowManagementList.size(); i++) {
-            if (name.equals(workflowManagementList.get(i).getSpendingName())) {
+            if (workflowManagementList.get(i).getSpendingName().contains(name)) {
                 System.out.println(workflowManagementList.get(i));
             } else {
-                System.out.println("Khong tim thay id. ");
+                System.out.println("Khong tim thay ten. ");
                 break;
             }
         }
