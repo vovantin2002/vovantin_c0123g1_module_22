@@ -3,15 +3,14 @@ package bai_10.bai_1.service;
 import bai_10.bai_1.model.Fruit;
 import bai_10.bai_1.repository.FruitRepository;
 
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
 public class FruitService implements IFruitService {
-    static FruitRepository fruitRepository = new FruitRepository();
-    static Map<String, Fruit> listFruit = fruitRepository.getListFruit();
-    static Scanner sc = new Scanner(System.in);
+     FruitRepository fruitRepository = new FruitRepository();
+     Map<String, Fruit> listFruit = fruitRepository.getListFruit();
+     Scanner sc = new Scanner(System.in);
 
     public void displayListFruit() {
         for (Map.Entry<String, Fruit> s : listFruit.entrySet()) {
