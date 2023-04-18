@@ -23,27 +23,21 @@ public class Main {
             String choss = sc.nextLine();
             switch (choss) {
                 case "1":
-                    //hien thi danh sach
                     workflowManagementController.display();
                     break;
                 case "2":
-                    //hien thi danh sach
                     workflowManagementController.add();
                     break;
                 case "3":
-                    //hien thi danh sach
                     workflowManagementController.delete();
                     break;
                 case "4":
-                    //hien thi danh sach
                     workflowManagementController.edit();
                     break;
                 case "5":
-                    //hien thi danh sach
                     workflowManagementController.searchById();
                     break;
                 case "6":
-                    //hien thi danh sach
                     workflowManagementController.searchByName();
                     break;
                 case "7":
