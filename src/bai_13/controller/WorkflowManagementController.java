@@ -28,4 +28,10 @@ public class WorkflowManagementController {
     public void searchByName() {
         workflowManagementService.searchByName();
     }
+    public  void sortByName(){
+        workflowManagementService.sortByName();
+    }
+    public void sortByAmount(){
+        workflowManagementService.sortByAmount();
+    }
 }

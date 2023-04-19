@@ -13,7 +13,7 @@ public interface IWorkflowManagementRepository {
 
     boolean edit();
 
-    boolean searchById();
+    void searchById(int id);
 
-    boolean searchByName();
+    void searchByName(String name);
 }

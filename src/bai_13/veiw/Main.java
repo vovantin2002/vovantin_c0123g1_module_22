@@ -18,7 +18,9 @@ public class Main {
                     "4. Sửa \n" +
                     "5. Tìm kiếm theo mã chi tiêu \n" +
                     "6. Tìm kiếm gần đúng theo tên chi tiêu \n" +
-                    "7. Thoat. \n" +
+                    "7. Sắp xếp theo tên tăng dần \n" +
+                    "8. Sắp xếp theo số tiền chi tiêu giảm dần \n" +
+                    "9. Thoát. \n" +
                     "Nhập lựa chọn của bạn: ");
             String choss = sc.nextLine();
             switch (choss) {
@@ -41,6 +43,12 @@ public class Main {
                     workflowManagementController.searchByName();
                     break;
                 case "7":
+                    workflowManagementController.sortByName();
+                    break;
+                case "8":
+                    workflowManagementController.sortByAmount();
+                    break;
+                case "9":
                     System.out.println("Ban da thoat. ");
                     System.exit(0);
                     break;

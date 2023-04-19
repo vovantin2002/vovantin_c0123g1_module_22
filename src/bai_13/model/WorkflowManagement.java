@@ -1,6 +1,6 @@
 package bai_13.model;
 
-public class WorkflowManagement {
+public class WorkflowManagement implements Comparable<WorkflowManagement>{
     private int id;
     private String spendingName;
     private String spendingDate;
@@ -67,5 +67,10 @@ public class WorkflowManagement {
                 ", spendingAmount=" + spendingAmount +
                 ", moreDescription='" + moreDescription + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(WorkflowManagement o) {
+            return this.spendingName.compareTo(o.spendingName);
     }
 }

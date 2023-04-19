@@ -3,6 +3,7 @@ package bai_13.service;
 import bai_13.model.WorkflowManagement;
 import bai_13.repository.WorkflowManagementRepository;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ public class WorkflowManagementService implements IWorkflowManagementService {
         for (WorkflowManagement w : workflowManagementList) {
             System.out.println(w);
         }
+
 
     }
 
@@ -45,9 +47,6 @@ public class WorkflowManagementService implements IWorkflowManagementService {
             if (id == workflowManagementList.get(i).getId()) {
                 workflowManagementList.remove(i);
                 System.out.println("Xoa thanh cong. ");
-            } else {
-                System.out.println("Khong tim thay id muon xoa. ");
-                break;
             }
         }
     }
@@ -72,9 +71,6 @@ public class WorkflowManagementService implements IWorkflowManagementService {
                 WorkflowManagement workflowManagement = new WorkflowManagement(id, name, date, spendingAmount, moreDescription);
                 workflowManagementList.set(i, workflowManagement);
                 System.out.println("Sua thanh cong. ");
-            } else {
-                System.out.println("Khong tim thay id muon sua. ");
-                break;
             }
         }
     }
@@ -83,27 +79,29 @@ public class WorkflowManagementService implements IWorkflowManagementService {
     public void searchById() {
         System.out.println("Nhap id muon tim kiem: ");
         int id = Integer.parseInt(sc.nextLine());
-        for (int i = 0; i < workflowManagementList.size(); i++) {
-            if (id == workflowManagementList.get(i).getId()) {
-                System.out.println(workflowManagementList.get(i));
-            } else {
-                System.out.println("Khong tim thay id. ");
-                break;
-            }
-        }
+        workflowManagementRepository.searchById(id);
     }
 
     @Override
     public void searchByName() {
         System.out.println("Nhap ten muon tim kiem: ");
         String name = sc.nextLine();
-        for (int i = 0; i < workflowManagementList.size(); i++) {
-            if (workflowManagementList.get(i).getSpendingName().contains(name)) {
-                System.out.println(workflowManagementList.get(i));
-            } else {
-                System.out.println("Khong tim thay ten. ");
-                break;
-            }
+        workflowManagementRepository.searchByName(name);
+    }
+
+    @Override
+    public void sortByName() {
+        Collections.sort(workflowManagementList);
+        for (WorkflowManagement w : workflowManagementList) {
+            System.out.println(w);
+        }
+    }
+
+    @Override
+    public void sortByAmount() {
+        Collections.sort(workflowManagementList,new SortByAmount());
+        for (WorkflowManagement w : workflowManagementList) {
+            System.out.println(w);
         }
     }
 }
