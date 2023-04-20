@@ -2,6 +2,8 @@ package bai_13.service;
 
 import bai_13.model.WorkflowManagement;
 import bai_13.repository.WorkflowManagementRepository;
+import bai_13.util.IdNotFoundException;
+import bai_13.util.UniqueIDException;
 
 import java.util.Collections;
 import java.util.List;
@@ -9,8 +11,8 @@ import java.util.Scanner;
 
 public class WorkflowManagementService implements IWorkflowManagementService {
     Scanner sc = new Scanner(System.in);
-    WorkflowManagementRepository workflowManagementRepository = new WorkflowManagementRepository();
-    List<WorkflowManagement> workflowManagementList = workflowManagementRepository.getList();
+    static WorkflowManagementRepository workflowManagementRepository = new WorkflowManagementRepository();
+    static List<WorkflowManagement> workflowManagementList = workflowManagementRepository.getList();
 
     @Override
     public void display() {
@@ -22,9 +24,14 @@ public class WorkflowManagementService implements IWorkflowManagementService {
     }
 
     @Override
-    public void add() {
-        System.out.println("Nhap id: ");
+    public void add() throws UniqueIDException {
+        System.out.println("nhap id: ");
         int id = Integer.parseInt(sc.nextLine());
+        for (int i = 0; i < workflowManagementList.size(); i++) {
+            if (id == workflowManagementList.get(i).getId()) {
+                throw new UniqueIDException("id đã tồn tại, vui lòng nhập lại. ");
+            }
+        }
         System.out.println("Nhap ten: ");
         String name = sc.nextLine();
         System.out.println("Nhap ngay: ");
@@ -39,7 +46,7 @@ public class WorkflowManagementService implements IWorkflowManagementService {
     }
 
     @Override
-    public void delete() {
+    public void delete() throws IdNotFoundException {
         display();
         System.out.println("Nhap id muon xoa: ");
         int id = Integer.parseInt(sc.nextLine());
@@ -47,6 +54,9 @@ public class WorkflowManagementService implements IWorkflowManagementService {
             if (id == workflowManagementList.get(i).getId()) {
                 workflowManagementList.remove(i);
                 System.out.println("Xoa thanh cong. ");
+                break;
+            } else {
+                throw new IdNotFoundException("id khong ton tai. ");
             }
         }
     }
@@ -99,7 +109,7 @@ public class WorkflowManagementService implements IWorkflowManagementService {
 
     @Override
     public void sortByAmount() {
-        Collections.sort(workflowManagementList,new SortByAmount());
+        Collections.sort(workflowManagementList, new SortByAmount());
         for (WorkflowManagement w : workflowManagementList) {
             System.out.println(w);
         }
