@@ -1,6 +1,7 @@
 package bai_13.repository;
 
 import bai_13.model.WorkflowManagement;
+import bai_13.util.ReadAndWrite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class WorkflowManagementRepository implements IWorkflowManagementReposito
 
     @Override
     public void add(WorkflowManagement workflowManagement) {
-        workflowManagementList.add(workflowManagement);
+        ReadAndWrite.write(workflowManagement);
     }
 
     @Override

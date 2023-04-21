@@ -68,6 +68,9 @@ public class WorkflowManagement implements Comparable<WorkflowManagement>{
                 ", moreDescription='" + moreDescription + '\'' +
                 '}';
     }
+    public  String writeToFile(){
+        return id+","+spendingName+","+spendingDate+","+spendingAmount+","+moreDescription;
+    }
 
     @Override
     public int compareTo(WorkflowManagement o) {

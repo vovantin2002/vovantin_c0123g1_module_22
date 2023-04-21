@@ -3,6 +3,8 @@ package bai_13.service;
 import bai_13.model.WorkflowManagement;
 import bai_13.repository.WorkflowManagementRepository;
 import bai_13.util.IdNotFoundException;
+import bai_13.util.ReadAndWrite;
+import bai_13.util.SortByAmount;
 import bai_13.util.UniqueIDException;
 
 import java.util.Collections;
@@ -13,22 +15,21 @@ public class WorkflowManagementService implements IWorkflowManagementService {
     Scanner sc = new Scanner(System.in);
     static WorkflowManagementRepository workflowManagementRepository = new WorkflowManagementRepository();
     static List<WorkflowManagement> workflowManagementList = workflowManagementRepository.getList();
+    List<WorkflowManagement> workflowManagementList1 = ReadAndWrite.read();
 
     @Override
     public void display() {
-        for (WorkflowManagement w : workflowManagementList) {
+        for (WorkflowManagement w : workflowManagementList1) {
             System.out.println(w);
         }
-
-
     }
 
     @Override
     public void add() throws UniqueIDException {
         System.out.println("nhap id: ");
         int id = Integer.parseInt(sc.nextLine());
-        for (int i = 0; i < workflowManagementList.size(); i++) {
-            if (id == workflowManagementList.get(i).getId()) {
+        for (int i = 0; i < workflowManagementList1.size(); i++) {
+            if (id == workflowManagementList1.get(i).getId()) {
                 throw new UniqueIDException("id đã tồn tại, vui lòng nhập lại. ");
             }
         }
@@ -47,17 +48,23 @@ public class WorkflowManagementService implements IWorkflowManagementService {
 
     @Override
     public void delete() throws IdNotFoundException {
+        boolean flag = true;
         display();
         System.out.println("Nhap id muon xoa: ");
         int id = Integer.parseInt(sc.nextLine());
-        for (int i = 0; i < workflowManagementList.size(); i++) {
-            if (id == workflowManagementList.get(i).getId()) {
-                workflowManagementList.remove(i);
+        for (int i = 0; i < workflowManagementList1.size(); i++) {
+            if (id == workflowManagementList1.get(i).getId()) {
+                workflowManagementList1.remove(i);
+                ReadAndWrite.writeToDelete(workflowManagementList1);
                 System.out.println("Xoa thanh cong. ");
+                flag = true;
                 break;
             } else {
-                throw new IdNotFoundException("id khong ton tai. ");
+                flag = false;
             }
+        }
+        if (!flag) {
+            throw new IdNotFoundException("id khong ton tai. ");
         }
     }
 
@@ -66,8 +73,8 @@ public class WorkflowManagementService implements IWorkflowManagementService {
         display();
         System.out.println("Nhap id muon sua: ");
         int id = Integer.parseInt(sc.nextLine());
-        for (int i = 0; i < workflowManagementList.size(); i++) {
-            if (id == workflowManagementList.get(i).getId()) {
+        for (int i = 0; i < workflowManagementList1.size(); i++) {
+            if (id == workflowManagementList1.get(i).getId()) {
                 System.out.println("Nhap id: ");
                 id = Integer.parseInt(sc.nextLine());
                 System.out.println("Nhap ten: ");
@@ -79,7 +86,8 @@ public class WorkflowManagementService implements IWorkflowManagementService {
                 System.out.println("Nhap mo ta: ");
                 String moreDescription = sc.nextLine();
                 WorkflowManagement workflowManagement = new WorkflowManagement(id, name, date, spendingAmount, moreDescription);
-                workflowManagementList.set(i, workflowManagement);
+                workflowManagementList1.set(i, workflowManagement);
+                ReadAndWrite.writeToDelete(workflowManagementList1);
                 System.out.println("Sua thanh cong. ");
             }
         }
