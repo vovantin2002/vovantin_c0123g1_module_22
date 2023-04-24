@@ -2,20 +2,14 @@ package bai_13.repository;
 
 import bai_13.model.WorkflowManagement;
 import bai_13.util.ReadAndWrite;
+import bai_13.util.ReadAndWriteBinaryFile;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class WorkflowManagementRepository implements IWorkflowManagementRepository {
-    static List<WorkflowManagement> workflowManagementList = ReadAndWrite.read();
-
-//    static {
-//        workflowManagementList.add(new WorkflowManagement(123, "Nguyen Van C", "20/3", 200, "tu nau an"));
-//        workflowManagementList.add(new WorkflowManagement(124, "Nguyen Van B", "20/3", 400, "quan ao"));
-//        workflowManagementList.add(new WorkflowManagement(125, "Nguyen Van A", "20/3", 100, "mot thang"));
-//        workflowManagementList.add(new WorkflowManagement(126, "Nguyen Van D", "20/3", 300, "lat vat"));
-//    }
-
+    //    static List<WorkflowManagement> workflowManagementList = ReadAndWrite.read();
+    List<WorkflowManagement> workflowManagementList = ReadAndWriteBinaryFile.read();
 
     @Override
     public List<WorkflowManagement> getList() {
@@ -23,18 +17,18 @@ public class WorkflowManagementRepository implements IWorkflowManagementReposito
     }
 
     @Override
-    public void add(WorkflowManagement workflowManagement) {
-        ReadAndWrite.write(workflowManagement);
+    public void add(List<WorkflowManagement> workflowManagementList1) {
+        ReadAndWriteBinaryFile.write(workflowManagementList1);
     }
 
     @Override
     public void delete(List<WorkflowManagement> workflowManagementList) {
-        ReadAndWrite.writeToDelete(workflowManagementList);
+        ReadAndWriteBinaryFile.write(workflowManagementList);
     }
 
     @Override
     public void edit(List<WorkflowManagement> workflowManagementList) {
-        ReadAndWrite.writeToDelete(workflowManagementList);
+        ReadAndWriteBinaryFile.write(workflowManagementList);
     }
 
     @Override

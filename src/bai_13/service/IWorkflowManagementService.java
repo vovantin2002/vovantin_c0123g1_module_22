@@ -18,6 +18,8 @@ public interface IWorkflowManagementService {
     void searchById();
 
     void searchByName();
+
     void sortByName();
+
     void sortByAmount();
 }

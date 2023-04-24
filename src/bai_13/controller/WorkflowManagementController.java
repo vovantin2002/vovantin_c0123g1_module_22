@@ -12,13 +12,13 @@ public class WorkflowManagementController {
     }
 
     public void add() {
-        boolean flag=true;
-        while (flag){
+        boolean flag = true;
+        while (flag) {
             try {
                 workflowManagementService.add();
-                flag=false;
+                flag = false;
             } catch (UniqueIDException e) {
-                flag=true;
+                flag = true;
                 System.err.println("id da ton tai, vui long nhap lai. ");
             }
         }
@@ -29,7 +29,7 @@ public class WorkflowManagementController {
         while (flag) {
             try {
                 workflowManagementService.delete();
-                flag=false;
+                flag = false;
             } catch (IdNotFoundException e) {
                 flag = true;
                 System.err.println("id khong ton tai. ");
@@ -37,23 +37,23 @@ public class WorkflowManagementController {
         }
     }
 
-        public void edit () {
-            workflowManagementService.edit();
-        }
+    public void edit() {
+        workflowManagementService.edit();
+    }
 
-        public void searchById () {
-            workflowManagementService.searchById();
-        }
+    public void searchById() {
+        workflowManagementService.searchById();
+    }
 
-        public void searchByName () {
-            workflowManagementService.searchByName();
-        }
+    public void searchByName() {
+        workflowManagementService.searchByName();
+    }
 
-        public void sortByName () {
-            workflowManagementService.sortByName();
-        }
+    public void sortByName() {
+        workflowManagementService.sortByName();
+    }
 
-        public void sortByAmount () {
-            workflowManagementService.sortByAmount();
-        }
+    public void sortByAmount() {
+        workflowManagementService.sortByAmount();
+    }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 public interface IWorkflowManagementRepository {
     List<WorkflowManagement> getList();
 
-    void add(WorkflowManagement workflowManagement);
+    void add(List<WorkflowManagement> workflowManagementList);
 
     void delete(List<WorkflowManagement> workflowManagementList);
 

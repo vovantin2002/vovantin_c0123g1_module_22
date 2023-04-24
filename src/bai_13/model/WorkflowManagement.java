@@ -1,6 +1,8 @@
 package bai_13.model;
 
-public class WorkflowManagement implements Comparable<WorkflowManagement>{
+import java.io.Serializable;
+
+public class WorkflowManagement implements Serializable, Comparable<WorkflowManagement> {
     private int id;
     private String spendingName;
     private String spendingDate;
@@ -68,12 +70,13 @@ public class WorkflowManagement implements Comparable<WorkflowManagement>{
                 ", moreDescription='" + moreDescription + '\'' +
                 '}';
     }
-    public  String writeToFile(){
-        return id+","+spendingName+","+spendingDate+","+spendingAmount+","+moreDescription;
+
+    public String writeToFile() {
+        return id + "," + spendingName + "," + spendingDate + "," + spendingAmount + "," + moreDescription;
     }
 
     @Override
     public int compareTo(WorkflowManagement o) {
-            return this.spendingName.compareTo(o.spendingName);
+        return this.spendingName.compareTo(o.spendingName);
     }
 }
