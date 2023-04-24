@@ -9,9 +9,9 @@ public interface IWorkflowManagementRepository {
 
     void add(WorkflowManagement workflowManagement);
 
-    boolean delete(int id);
+    void delete(List<WorkflowManagement> workflowManagementList);
 
-    boolean edit();
+    void edit(List<WorkflowManagement> workflowManagementList);
 
     void searchById(int id);
 

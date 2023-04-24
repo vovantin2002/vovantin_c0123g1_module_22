@@ -2,19 +2,17 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        String s="CodegymDaNang";
-        String [] s4=s.split("");
-        String s3="";
-        for (int j = 0; j < s.length(); j++) {
-            if(s4[j]==s4[j].toUpperCase()){
-               s3+=" "+s4[j].toLowerCase();
-            }else{
-                s3+=s4[j];
+       int []arr= {2,4,6,8,10};
+       int n=arr[1]-arr[0];
+       boolean flag=true;
+        for (int i = 2; i <arr.length ; i++) {
+            if(arr[i]-arr[i-1]!=n){
+                flag=false;
+                break;
             }
         }
-        System.out.println(s3);
-
-        System.out.println(s3);
-
+        if(flag){
+            System.out.println("mang deu. ");
+        }
     }
 }

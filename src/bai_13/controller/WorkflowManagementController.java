@@ -19,7 +19,7 @@ public class WorkflowManagementController {
                 flag=false;
             } catch (UniqueIDException e) {
                 flag=true;
-                System.out.println(e);
+                System.err.println("id da ton tai, vui long nhap lai. ");
             }
         }
     }
@@ -32,7 +32,7 @@ public class WorkflowManagementController {
                 flag=false;
             } catch (IdNotFoundException e) {
                 flag = true;
-                System.out.println(e);
+                System.err.println("id khong ton tai. ");
             }
         }
     }

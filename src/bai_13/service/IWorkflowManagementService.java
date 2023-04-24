@@ -1,14 +1,17 @@
 package bai_13.service;
 
+import bai_13.model.WorkflowManagement;
 import bai_13.util.IdNotFoundException;
 import bai_13.util.UniqueIDException;
+
+import java.util.List;
 
 public interface IWorkflowManagementService {
     void display();
 
     void add() throws UniqueIDException;
 
-    void delete() throws IdNotFoundException;
+    List<WorkflowManagement> delete() throws IdNotFoundException;
 
     void edit();
 

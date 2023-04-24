@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WorkflowManagementRepository implements IWorkflowManagementRepository {
-    static List<WorkflowManagement> workflowManagementList = new ArrayList<>();
+    static List<WorkflowManagement> workflowManagementList = ReadAndWrite.read();
 
-    static {
-        workflowManagementList.add(new WorkflowManagement(123, "Nguyen Van C", "20/3", 200, "tu nau an"));
-        workflowManagementList.add(new WorkflowManagement(124, "Nguyen Van B", "20/3", 400, "quan ao"));
-        workflowManagementList.add(new WorkflowManagement(125, "Nguyen Van A", "20/3", 100, "mot thang"));
-        workflowManagementList.add(new WorkflowManagement(126, "Nguyen Van D", "20/3", 300, "lat vat"));
-    }
+//    static {
+//        workflowManagementList.add(new WorkflowManagement(123, "Nguyen Van C", "20/3", 200, "tu nau an"));
+//        workflowManagementList.add(new WorkflowManagement(124, "Nguyen Van B", "20/3", 400, "quan ao"));
+//        workflowManagementList.add(new WorkflowManagement(125, "Nguyen Van A", "20/3", 100, "mot thang"));
+//        workflowManagementList.add(new WorkflowManagement(126, "Nguyen Van D", "20/3", 300, "lat vat"));
+//    }
 
 
     @Override
@@ -28,14 +28,13 @@ public class WorkflowManagementRepository implements IWorkflowManagementReposito
     }
 
     @Override
-    public boolean delete(int id) {
-
-        return false;
+    public void delete(List<WorkflowManagement> workflowManagementList) {
+        ReadAndWrite.writeToDelete(workflowManagementList);
     }
 
     @Override
-    public boolean edit() {
-        return false;
+    public void edit(List<WorkflowManagement> workflowManagementList) {
+        ReadAndWrite.writeToDelete(workflowManagementList);
     }
 
     @Override

@@ -47,7 +47,7 @@ public class WorkflowManagementService implements IWorkflowManagementService {
     }
 
     @Override
-    public void delete() throws IdNotFoundException {
+    public List<WorkflowManagement> delete() throws IdNotFoundException {
         boolean flag = true;
         display();
         System.out.println("Nhap id muon xoa: ");
@@ -55,7 +55,7 @@ public class WorkflowManagementService implements IWorkflowManagementService {
         for (int i = 0; i < workflowManagementList1.size(); i++) {
             if (id == workflowManagementList1.get(i).getId()) {
                 workflowManagementList1.remove(i);
-                ReadAndWrite.writeToDelete(workflowManagementList1);
+                workflowManagementRepository.delete(workflowManagementList1);
                 System.out.println("Xoa thanh cong. ");
                 flag = true;
                 break;
@@ -66,6 +66,7 @@ public class WorkflowManagementService implements IWorkflowManagementService {
         if (!flag) {
             throw new IdNotFoundException("id khong ton tai. ");
         }
+        return workflowManagementList1;
     }
 
     @Override
@@ -87,7 +88,7 @@ public class WorkflowManagementService implements IWorkflowManagementService {
                 String moreDescription = sc.nextLine();
                 WorkflowManagement workflowManagement = new WorkflowManagement(id, name, date, spendingAmount, moreDescription);
                 workflowManagementList1.set(i, workflowManagement);
-                ReadAndWrite.writeToDelete(workflowManagementList1);
+                workflowManagementRepository.delete(workflowManagementList1);
                 System.out.println("Sua thanh cong. ");
             }
         }
