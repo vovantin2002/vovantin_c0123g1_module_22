@@ -85,7 +85,7 @@ public class WorkflowManagementService implements IWorkflowManagementService {
                 String moreDescription = sc.nextLine();
                 WorkflowManagement workflowManagement = new WorkflowManagement(id, name, date, spendingAmount, moreDescription);
                 workflowManagementList.set(i, workflowManagement);
-                workflowManagementRepository.delete(workflowManagementList);
+                workflowManagementRepository.edit(workflowManagementList);
                 System.out.println("Sua thanh cong. ");
             }
         }

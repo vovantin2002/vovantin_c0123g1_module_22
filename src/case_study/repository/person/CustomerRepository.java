@@ -1,8 +1,8 @@
-package case_study.repository;
+package case_study.repository.person;
 
 import java.util.List;
 
-public class CustomerRepository implements ICustomerRepository{
+public class CustomerRepository implements ICustomerRepository {
     @Override
     public List getList() {
         return null;

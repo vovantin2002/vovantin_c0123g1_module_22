@@ -1,11 +1,20 @@
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class Main {
+public class Main { static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        String str = "Hello world";
-            str.replace(" ","");
-
-//        str = str.replace("Hello", "   ");
-        System.out.println(str);
+        boolean
+        flag = true;
+        String phoneNumber = null;
+        while (flag) {
+            System.out.print("Enter phoneNumber: ");
+            phoneNumber = sc.nextLine();
+//            if (identityCard.matches("^0[0-9]{9}$")) {
+                flag = false;
+            }
+        }
     }
-}
+

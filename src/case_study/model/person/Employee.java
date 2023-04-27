@@ -57,7 +57,7 @@ public class Employee extends Person {
         this.salary = salary;
     }
 
-    public String getInfoToCsv() {
+    public  String getInfoToCsv() {
         return id + "," + name + "," + birthday + "," + gender + "," + identityCard + "," + phoneNumber + "," + email + "," + ability + "," + position + "," + salary;
     }
 }

@@ -1,8 +1,11 @@
 package case_study.controller;
 
+import case_study.service.person.EmployeeService;
+
 import java.util.Scanner;
 
 public class FuramaController {
+    static EmployeeService employeeService = new EmployeeService();
     static Scanner sc = new Scanner(System.in);
 
     public static void displayMainMenu() {
@@ -14,7 +17,7 @@ public class FuramaController {
                     "4. Booking Management\n" +
                     "5. Promotion Management\n" +
                     "0. Thoat\n" +
-                    "Nhap lua chon cua ban: ");
+                    "Enter your selection: ");
             String choss = sc.nextLine();
             switch (choss) {
                 case "1":
@@ -36,7 +39,7 @@ public class FuramaController {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("Lua chon khong hop le, vui long nhap lai. ");
+                    System.err.println("Invalid selection, please re-enter. ");
             }
         }
     }
@@ -49,23 +52,23 @@ public class FuramaController {
                     "2 Add new employee\n" +
                     "3 Edit employee\n" +
                     "4 Return main menu\n" +
-                    "Nhap lua chon cua ban: ");
+                    "Enter your selection: ");
             choss = sc.nextLine();
             switch (choss) {
                 case "1":
-                    employeeManagement();
+                    employeeService.display();
                     break;
                 case "2":
-                    customerManagement();
+                    employeeService.add();
                     break;
                 case "3":
-                    facilityManagement();
+                    employeeService.edit();
                     break;
                 case "4":
 
                     break;
                 default:
-                    System.out.println("Lua chon khong hop le, vui long nhap lai. ");
+                    System.err.println("Invalid selection, please re-enter. ");
             }
         }
     }
@@ -78,11 +81,11 @@ public class FuramaController {
                     "2. Add new customer\n" +
                     "3. Edit customer\n" +
                     "4. Return main menu\n" +
-                    "Nhap lua chon cua ban: ");
+                    "Enter your selection: ");
             choss = sc.nextLine();
             switch (choss) {
                 case "1":
-                    employeeManagement();
+//                    employeeManagement();
                     break;
                 case "2":
                     customerManagement();
@@ -94,7 +97,7 @@ public class FuramaController {
 
                     break;
                 default:
-                    System.out.println("Lua chon khong hop le, vui long nhap lai. ");
+                    System.err.println("Invalid selection, please re-enter. ");
             }
         }
     }
@@ -107,11 +110,11 @@ public class FuramaController {
                     "2 Add new facility\n" +
                     "3 Display list facility maintenance\n" +
                     "4 Return main menu\n" +
-                    "Nhap lua chon cua ban: ");
+                    "Enter your selection: ");
             choss = sc.nextLine();
             switch (choss) {
                 case "1":
-                    employeeManagement();
+//                    employeeManagement();
                     break;
                 case "2":
                     customerManagement();
@@ -123,7 +126,7 @@ public class FuramaController {
 
                     break;
                 default:
-                    System.out.println("Lua chon khong hop le, vui long nhap lai. ");
+                    System.err.println("Invalid selection, please re-enter. ");
             }
         }
     }
@@ -138,11 +141,11 @@ public class FuramaController {
                     "4. Display list contracts\n" +
                     "5. Edit contracts\n" +
                     "6. Return main menu\n" +
-                    "Nhap lua chon cua ban: ");
+                    "Enter your selection: ");
             choss = sc.nextLine();
             switch (choss) {
                 case "1":
-                    employeeManagement();
+//                    employeeManagement();
                     break;
                 case "2":
                     customerManagement();
@@ -160,7 +163,7 @@ public class FuramaController {
 
                     break;
                 default:
-                    System.out.println("Lua chon khong hop le, vui long nhap lai. ");
+                    System.err.println("Invalid selection, please re-enter. ");
             }
         }
     }
@@ -172,11 +175,11 @@ public class FuramaController {
                     "1. Display list customers use service\n" +
                     "2. Display list customers get voucher\n" +
                     "3. Return main menu\n" +
-                    "Nhap lua chon cua ban: ");
+                    "Enter your selection: ");
             choss = sc.nextLine();
             switch (choss) {
                 case "1":
-                    employeeManagement();
+//                    employeeManagement();
                     break;
                 case "2":
                     customerManagement();
@@ -184,7 +187,7 @@ public class FuramaController {
                 case "3":
                     break;
                 default:
-                    System.out.println("Lua chon khong hop le, vui long nhap lai. ");
+                    System.err.println("Invalid selection, please re-enter. ");
             }
         }
     }

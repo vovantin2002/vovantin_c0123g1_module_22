@@ -1,6 +1,6 @@
-package case_study.service;
+package case_study.service.facility;
 
-public class EmployeeService implements IEmployeeService{
+public class FacilityService implements IFacilityService {
     @Override
     public void display() {
 
