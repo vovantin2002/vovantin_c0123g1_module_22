@@ -5,16 +5,27 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class ValidateEmployee {
+public class Validate {
     static Scanner sc = new Scanner(System.in);
 
-    public static String checkId() {
+    public static String checkIdEmployee() {
         String id = null;
         boolean flag = true;
         while (flag) {
             System.out.print("Enter id: ");
             id = String.valueOf(sc.nextLine());
             if (id.matches("^NV-[0-9]{4}$")) {
+                flag = false;
+            }
+        }
+        return id;
+    }public static String checkIdCustomer() {
+        String id = null;
+        boolean flag = true;
+        while (flag) {
+            System.out.print("Enter id: ");
+            id = String.valueOf(sc.nextLine());
+            if (id.matches("^KH-[0-9]{4}$")) {
                 flag = false;
             }
         }
@@ -27,7 +38,7 @@ public class ValidateEmployee {
         while (flag) {
             System.out.print("Enter name: ");
             name = sc.nextLine();
-            if (name.matches("^([A-Z][a-z]{0,6}\\s){1,8}$")) {
+            if (name.matches("^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$")) {
                 flag = false;
             }
         }

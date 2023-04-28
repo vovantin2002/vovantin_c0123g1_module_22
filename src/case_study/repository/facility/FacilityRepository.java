@@ -8,18 +8,4 @@ public class FacilityRepository implements IFacilityRepository {
         return null;
     }
 
-    @Override
-    public void add() {
-
-    }
-
-    @Override
-    public void delete() {
-
-    }
-
-    @Override
-    public void edit() {
-
-    }
 }

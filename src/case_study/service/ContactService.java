@@ -16,8 +16,4 @@ public class ContactService implements IContactService{
 
     }
 
-    @Override
-    public void delete() {
-
-    }
 }

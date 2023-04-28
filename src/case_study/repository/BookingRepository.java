@@ -10,18 +10,4 @@ public class BookingRepository implements IBookingRepository {
         return null;
     }
 
-    @Override
-    public void add() {
-
-    }
-
-    @Override
-    public void delete() {
-
-    }
-
-    @Override
-    public void edit() {
-
-    }
 }

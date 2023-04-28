@@ -9,19 +9,4 @@ public class ContactRepository implements IContactRepository {
     public List getList() {
         return null;
     }
-
-    @Override
-    public void add() {
-
-    }
-
-    @Override
-    public void delete() {
-
-    }
-
-    @Override
-    public void edit() {
-
-    }
 }

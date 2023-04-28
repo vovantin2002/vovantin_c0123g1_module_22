@@ -16,8 +16,4 @@ public class BookingService implements IBookingService{
 
     }
 
-    @Override
-    public void delete() {
-
-    }
 }

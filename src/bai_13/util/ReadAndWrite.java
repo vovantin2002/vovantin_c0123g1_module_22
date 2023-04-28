@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWrite {
-    static File file = new File("bai_13\\data\\text.csv");
+    static File file = new File("bai_13\\data\\employee.csv");
 
     public static void write(WorkflowManagement workflowManagement) {
         FileWriter fileWriter = null;
