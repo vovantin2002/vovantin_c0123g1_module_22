@@ -1,7 +1,6 @@
 package case_study.service.person;
 
 import case_study.model.person.Customer;
-import case_study.model.person.Employee;
 import case_study.repository.person.CustomerRepository;
 import case_study.util.Validate;
 

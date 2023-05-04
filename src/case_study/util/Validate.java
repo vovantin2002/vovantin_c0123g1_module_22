@@ -19,13 +19,54 @@ public class Validate {
             }
         }
         return id;
-    }public static String checkIdCustomer() {
+    }
+
+    public static String checkIdCustomer() {
         String id = null;
         boolean flag = true;
         while (flag) {
             System.out.print("Enter id: ");
             id = String.valueOf(sc.nextLine());
             if (id.matches("^KH-[0-9]{4}$")) {
+                flag = false;
+            }
+        }
+        return id;
+    }
+
+    public static String checkIdVilla() {
+        String id = null;
+        boolean flag = true;
+        while (flag) {
+            System.out.print("Enter id: ");
+            id = String.valueOf(sc.nextLine());
+            if (id.matches("^SVVL-[0-9]{4}$")) {
+                flag = false;
+            }
+        }
+        return id;
+    }
+
+    public static String checkIdRoom() {
+        String id = null;
+        boolean flag = true;
+        while (flag) {
+            System.out.print("Enter id: ");
+            id = String.valueOf(sc.nextLine());
+            if (id.matches("^SVRO-[0-9]{4}$")) {
+                flag = false;
+            }
+        }
+        return id;
+    }
+
+    public static String checkIdHouse() {
+        String id = null;
+        boolean flag = true;
+        while (flag) {
+            System.out.print("Enter id: ");
+            id = String.valueOf(sc.nextLine());
+            if (id.matches("^VLHO-[0-9]{4}$")) {
                 flag = false;
             }
         }
@@ -39,6 +80,45 @@ public class Validate {
             System.out.print("Enter name: ");
             name = sc.nextLine();
             if (name.matches("^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$")) {
+                flag = false;
+            }
+        }
+        return name;
+    }
+
+    public static String checkRentalType() {
+        boolean flag = true;
+        String name = null;
+        while (flag) {
+            System.out.print("Enter RentalType: ");
+            name = sc.nextLine();
+            if (name.matches("^[A-Z][a-z]{0,6}(\\s[a-z]{0,6}){0,14}$")) {
+                flag = false;
+            }
+        }
+        return name;
+    }
+
+    public static String checkRoomStandard() {
+        boolean flag = true;
+        String name = null;
+        while (flag) {
+            System.out.print("Enter roomStandard: ");
+            name = sc.nextLine();
+            if (name.matches("^[A-Z][a-z]{0,6}(\\s[a-z]{0,6}){0,14}$")) {
+                flag = false;
+            }
+        }
+        return name;
+    }
+
+    public static String checkNameService() {
+        boolean flag = true;
+        String name = null;
+        while (flag) {
+            System.out.print("Enter name: ");
+            name = sc.nextLine();
+            if (name.matches("^[A-Z][a-z]{0,6}(\\s[a-z]{0,6}){0,14}$")) {
                 flag = false;
             }
         }
@@ -104,11 +184,63 @@ public class Validate {
         while (flag) {
             System.out.print("Enter salary: ");
             salary = sc.nextLine();
-            if (salary.matches("^[1-9]{1,100}$")) {
+            if (salary.matches("^[1-9]+$")) {
                 flag = false;
             }
         }
         return salary;
+    }
+
+    public static String checkNumOfLevel() {
+        boolean flag = true;
+        String numOfLevel = null;
+        while (flag) {
+            System.out.print("Enter numOfLevel: ");
+            numOfLevel = sc.nextLine();
+            if (numOfLevel.matches("^[1-9]+$")) {
+                flag = false;
+            }
+        }
+        return numOfLevel;
+    }
+
+    public static String checkPrice() {
+        boolean flag = true;
+        String price = null;
+        while (flag) {
+            System.out.print("Enter price: ");
+            price = sc.nextLine();
+            if (price.matches("^[1-9]+$")) {
+                flag = false;
+            }
+        }
+        return price;
+    }
+
+    public static String checkArea() {
+        boolean flag = true;
+        String area = null;
+        while (flag) {
+            System.out.print("Enter area: ");
+            area = sc.nextLine();
+            if (area.matches("^[1-9]+.[0-9]+$")) {
+                flag = false;
+            }
+        }
+        return area;
+    }
+
+    public static String checkNumberHumanMax() {
+        boolean flag = true;
+        String numberHumanMax = null;
+        while (flag) {
+            System.out.print("Enter area: ");
+            numberHumanMax = sc.nextLine();
+            if (numberHumanMax.matches("^[1-9]+$") && Integer.parseInt(numberHumanMax) < 20) {
+                flag = false;
+            }
+        }
+        return numberHumanMax;
     }
 
 }

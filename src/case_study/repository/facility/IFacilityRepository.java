@@ -1,6 +1,8 @@
 package case_study.repository.facility;
 
-import case_study.repository.IRepository;
 
-public interface IFacilityRepository extends IRepository {
+import java.util.Map;
+
+public interface IFacilityRepository  {
+    Map getMap();
 }

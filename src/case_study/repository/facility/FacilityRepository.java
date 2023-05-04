@@ -1,11 +1,30 @@
 package case_study.repository.facility;
 
-import java.util.List;
+import case_study.model.facility.Facility;
+import case_study.model.facility.House;
+import case_study.model.facility.Room;
+import case_study.model.facility.Villa;
+import case_study.model.person.Customer;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class FacilityRepository implements IFacilityRepository {
-    @Override
-    public List getList() {
-        return null;
+    public void addNewFacility(Facility facility, int number) {
+        facilityMap.put(facility, number);
     }
 
+    private static LinkedHashMap<Facility, Integer> facilityMap;
+
+    static {
+        facilityMap = new LinkedHashMap<>();
+        facilityMap.put(new Villa("SVVL-0001", "Villa 1", "100", "500", "5", "High", "Free", "2", "1"), 0);
+        facilityMap.put(new House("SVHO-0002", "House 1", "50", "400", "6", "High", "Free", "2"), 5);
+        facilityMap.put(new Room("SVRO-0003", "Room 1", "50", "300", "7", "Normal", "Free"), 0);
+    }
+
+    @Override
+    public Map getMap() {
+        return facilityMap;
+    }
 }

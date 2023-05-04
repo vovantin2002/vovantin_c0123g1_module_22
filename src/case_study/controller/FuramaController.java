@@ -1,6 +1,7 @@
 package case_study.controller;
 
 import case_study.model.person.Customer;
+import case_study.service.facility.FacilityService;
 import case_study.service.person.CustomerService;
 import case_study.service.person.EmployeeService;
 
@@ -9,6 +10,7 @@ import java.util.Scanner;
 public class FuramaController {
     static CustomerService customerService=new CustomerService();
     static EmployeeService employeeService = new EmployeeService();
+    static FacilityService facilityService=new FacilityService();
     static Scanner sc = new Scanner(System.in);
 
     public static void displayMainMenu() {
@@ -117,13 +119,13 @@ public class FuramaController {
             choss = sc.nextLine();
             switch (choss) {
                 case "1":
-//                    employeeManagement();
+                    facilityService.display();
                     break;
                 case "2":
-                    customerManagement();
+                    facilityService.add();
                     break;
                 case "3":
-                    facilityManagement();
+                    facilityService.displayFacilityMaintenance();
                     break;
                 case "4":
 
