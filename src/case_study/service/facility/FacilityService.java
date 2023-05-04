@@ -17,8 +17,8 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public void display() {
-        for (Facility facility : facilityIntegerMap.keySet()) {
-            System.out.println(facility);
+        for (Map.Entry<Facility, Integer> facility : facilityIntegerMap.entrySet()) {
+            System.out.println(facility.getKey()+"-"+facility.getValue());
         }
     }
 
