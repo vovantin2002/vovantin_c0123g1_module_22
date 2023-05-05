@@ -1,4 +1,9 @@
 package case_study.repository;
 
-public interface IBookingRepository extends IRepository{
+import case_study.model.Booking;
+
+import java.util.Set;
+
+public interface IBookingRepository {
+    Set<Booking> getSet();
 }

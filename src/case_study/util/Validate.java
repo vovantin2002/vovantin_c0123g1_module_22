@@ -3,6 +3,7 @@ package case_study.util;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class Validate {
@@ -241,6 +242,24 @@ public class Validate {
             }
         }
         return numberHumanMax;
+    }
+    public static boolean checkDayStartAndEnd(String str) {
+        String regex = "^((0[1-9])||([1-2][0-9])||(3[0-1]))\\/((0[1-9])||(1[0-2]))\\/(20(([0-1][0-9])||(2[0-3])))$";
+        if (str.matches(regex)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public static LocalDate parseStringToLocalDate(String dateInString){
+        DateTimeFormatter simpleDateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate result = null;
+        try{
+            result =  LocalDate.parse(dateInString, simpleDateFormat);
+        } catch (DateTimeParseException e){
+            System.out.println("Please fix your DOB format as follows: dd-MM-yyyy (11-01-1990)");
+        }
+        return result;
     }
 
 }
