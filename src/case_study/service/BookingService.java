@@ -15,7 +15,6 @@ import java.util.*;
 
 public class BookingService implements IBookingService {
     HouseRepository houseRepository = new HouseRepository();
-    House house = houseRepository.getHouse();
     FacilityRepository facilityRepository = new FacilityRepository();
     Map<Facility, Integer> map = facilityRepository.getMap();
     FacilityService facilityService = new FacilityService();
@@ -88,23 +87,18 @@ public class BookingService implements IBookingService {
 
     }
 
-    static Map<House, Integer> houses = new HashMap<>();
+    Map<House, Integer> houses = houseRepository.getMapHouse();
 
-    static {
-        houses.put(new House("SVHO-0002", "House 1", "50", "400", "6", "High", "Free", "2"), 0);
-    }
 
     public void updateTimesOfUsingService(String serviceNum) {
         Set<House> houseSet = houses.keySet();
         House updatedHouse = null;
-        // find House Object with provided serviceNum
         for (House house : houseSet) {
             if (house.getIdService().equals(serviceNum)) {
                 updatedHouse = house;
                 break;
             }
         }
-        // get the using times then add back to the map with increased times by 1
         int n = houses.get(updatedHouse);
         houses.put(updatedHouse, n + 1);
     }
