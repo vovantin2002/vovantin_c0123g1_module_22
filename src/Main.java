@@ -1,12 +1,10 @@
 import case_study.model.Booking;
+import case_study.model.facility.House;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.LinkedHashMap;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main { static Scanner scanner = new Scanner(System.in);
 //    static Set<Booking> set=new TreeSet<>();
@@ -28,13 +26,24 @@ public class Main { static Scanner scanner = new Scanner(System.in);
             }
         }
 
+//House house=map
+    } public static void main(String[] args) {Map<String, Integer> map = new HashMap<>();
+//        public void updateTimesOfUsingService(String serviceNum) {
+//            Set<House> houseSet = houses.keySet();
+//            House updatedHouse = null;
+//            // find House Object with provided serviceNum
+//            for (House house: houseSet) {
+//                if(house.serviceID.equals(serviceNum)){
+//                    updatedHouse = house;
+//                    break;
+//                }
+//            }
+//            // get the using times then add back to the map with increased times by 1
+//            int usingTimes = houses.get(updatedHouse);
+//            houses.put(updatedHouse, usingTimes + 1);
+//            WriteFileHouse.write(houses);
+//        }
 
-    } public static void main(String[] args) {
-        BookingSystem bs = new BookingSystem();
-        bs.addBooking("Customer A"); // Thêm phần tử vào Map với giá trị ban đầu là 1
-        bs.addBooking("Customer B"); // Thêm phần tử mới vào Map với giá trị ban đầu là 1
-        bs.addBooking("Customer A"); // Tăng giá trị của phần tử "Customer A" trong Map lên 1
-        System.out.println(bs.bookings); // In ra Map để kiểm tra kết quả
     }
     }
 

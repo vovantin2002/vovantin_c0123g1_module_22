@@ -2,19 +2,22 @@ package case_study.service;
 
 import case_study.model.Booking;
 import case_study.model.facility.Facility;
+import case_study.model.facility.House;
 import case_study.repository.BookingRepository;
 import case_study.repository.facility.FacilityRepository;
+import case_study.repository.facility.HouseRepository;
 import case_study.service.facility.FacilityService;
 import case_study.service.person.CustomerService;
 import case_study.util.Validate;
 
 import java.time.LocalDate;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class BookingService implements IBookingService {
-    FacilityRepository facilityRepository=new FacilityRepository();
+    HouseRepository houseRepository = new HouseRepository();
+    House house = houseRepository.getHouse();
+    FacilityRepository facilityRepository = new FacilityRepository();
+    Map<Facility, Integer> map = facilityRepository.getMap();
     FacilityService facilityService = new FacilityService();
     CustomerService customerService = new CustomerService();
     static Scanner sc = new Scanner(System.in);
@@ -79,9 +82,31 @@ public class BookingService implements IBookingService {
         Booking booking = new Booking(bookingId, bookingDay, startDay, dayEndTime, customerId, serviceCode);
         bookingRepository.add(booking);
         System.out.println("successfully added new. ");
-        if(facilityRepository.getMap().containsKey(serviceCode)){
-            
+        if ("SVHO-0002".equals(serviceCode)) {
+            updateTimesOfUsingService(serviceCode);
         }
+
+    }
+
+    static Map<House, Integer> houses = new HashMap<>();
+
+    static {
+        houses.put(new House("SVHO-0002", "House 1", "50", "400", "6", "High", "Free", "2"), 0);
+    }
+
+    public void updateTimesOfUsingService(String serviceNum) {
+        Set<House> houseSet = houses.keySet();
+        House updatedHouse = null;
+        // find House Object with provided serviceNum
+        for (House house : houseSet) {
+            if (house.getIdService().equals(serviceNum)) {
+                updatedHouse = house;
+                break;
+            }
+        }
+        // get the using times then add back to the map with increased times by 1
+        int n = houses.get(updatedHouse);
+        houses.put(updatedHouse, n + 1);
     }
 
     @Override
